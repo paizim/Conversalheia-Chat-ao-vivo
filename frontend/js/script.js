@@ -23,8 +23,9 @@ const creatMesssageOtherElement = (content,sender,senderColor) => {
     const div = document.createElement("div")
     const span = document.createElement("span")
 
-    div.classList.add("message__self")
     div.classList.add("message__other")
+    div.classList.add("message__sender")
+   
     span.style.color = senderColor
     
     div.appendChild(span)
@@ -41,7 +42,9 @@ const scrollScreen = () =>{
 }
 const processMessage = ({data}) => {
     const {userID,userName,userColor} = JSON.parse(data)
-    const message = userId == user.id ? creatMesssageSelfElement = (content) : creatMesssageOtherElement(content,userName,userColor)
+    const message = userId == user.id 
+        ? creatMesssageSelfElement = (content) 
+        : creatMesssageOtherElement(content,userName,userColor)
     chatMessages.appendChild(message)
     scrollScreen()
 }
