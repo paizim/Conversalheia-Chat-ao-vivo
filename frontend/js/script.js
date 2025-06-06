@@ -21,21 +21,23 @@ const createMesssageSelfElement = (content) => {
     return div
 }
 
-const createMesssageOtherElement = (content,sender,senderColor) => {
-    const div = document.createElement("div")
-    const span = document.createElement("span")
+const createMesssageOtherElement = (content, sender, senderColor) => {
+  const div = document.createElement("div");
+  const span = document.createElement("span");
+  const p = document.createElement("p");
 
-    div.classList.add("message__other")
-    div.classList.add("message__self")
-    div.classList.add("message__sender")
-   
-    span.style.color = senderColor
-    
-    div.appendChild(span)
+  div.classList.add("message__other");
+  span.classList.add("message__sender");
 
-    span.innerHTML = sender
-    div.innerHTML += content
-    return div
+  span.style.color = senderColor;
+  span.textContent = sender;
+
+  p.textContent = content;
+
+  div.appendChild(span);
+  div.appendChild(p);
+
+  return div;
 }
 const scrollScreen = () =>{
     window.scrollTo({
