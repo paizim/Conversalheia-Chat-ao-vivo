@@ -13,7 +13,7 @@ const user = {id:"", name:"", color:""}
 let websocket
 let isWebSocketReady = false;
 
-const creatMesssageSelfElement = (content) => {
+const createMesssageSelfElement = (content) => {
     const div = document.createElement("div")
 
     div.classList.add("message__self")
@@ -21,7 +21,7 @@ const creatMesssageSelfElement = (content) => {
     return div
 }
 
-const creatMesssageOtherElement = (content,sender,senderColor) => {
+const createMesssageOtherElement = (content,sender,senderColor) => {
     const div = document.createElement("div")
     const span = document.createElement("span")
 
@@ -45,8 +45,8 @@ const scrollScreen = () =>{
 const processMessage = ({data}) => {
     const {userID,userName,userColor} = JSON.parse(data)
     const message = userId == user.id 
-        ? creatMesssageSelfElement = (content) 
-        : creatMesssageOtherElement(content,userName,userColor)
+        ? createMesssageSelfElement = (content) 
+        : createMesssageOtherElement(content,userName,userColor)
     chatMessages.appendChild(message)
     scrollScreen()
 }
