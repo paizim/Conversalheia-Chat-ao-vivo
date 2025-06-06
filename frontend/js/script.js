@@ -61,7 +61,7 @@ const handleLogin = (event) => {
 
 const sendMessage = (event) =>{
     event.preventDefault()
-    websocket.send(chatInput.value)
+    
     const message = {
         userId: user.id,
         userName: user.name,
