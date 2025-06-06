@@ -50,7 +50,7 @@ const handleLogin = (event) => {
     event.preventDefault()
     user.id = crypto.randomUUID()
     user.name = loginInput.value
-    user.color = color()
+    user.color = color
     
     login.style.display = "none"
     chat.style.display = "flex"
