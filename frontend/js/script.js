@@ -47,7 +47,7 @@ const processMessage = ({data}) => {
     const {userId,userName,userColor,content} = JSON.parse(data)
     const isSelf = userId === user.id
     const message = isSelf
-        ? createMesssageSelfElement = (content) 
+        ? createMesssageSelfElement(content) 
         : createMesssageOtherElement(content,userName,userColor)
     chatMessages.appendChild(message)
     scrollScreen()
