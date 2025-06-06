@@ -126,7 +126,7 @@ body {
 }
 .message__other{
     background-color: aliceblue;
-    color: white;
+    color: black;
     border-radius: 0px 10px 10px 10px;
     align-self: flex-start;
 }
