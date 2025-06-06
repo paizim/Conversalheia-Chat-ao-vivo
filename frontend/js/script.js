@@ -26,6 +26,7 @@ const createMesssageOtherElement = (content,sender,senderColor) => {
     const span = document.createElement("span")
 
     div.classList.add("message__other")
+    div.classList.add("message__self")
     div.classList.add("message__sender")
    
     span.style.color = senderColor
@@ -43,7 +44,7 @@ const scrollScreen = () =>{
     })
 }
 const processMessage = ({data}) => {
-    const {userId,userName,userColor} = JSON.parse(data)
+    const {userId,userName,userColor,content} = JSON.parse(data)
     const isSelf = userId === user.id
     const message = isSelf
         ? createMesssageSelfElement = (content) 
