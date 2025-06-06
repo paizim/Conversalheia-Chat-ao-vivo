@@ -11,6 +11,8 @@ const color = "gold"
 const user = {id:"", name:"", color:""}
 
 let websocket
+let isWebSocketReady = false;
+
 const creatMesssageSelfElement = (content) => {
     const div = document.createElement("div")
 
@@ -59,11 +61,20 @@ const handleLogin = (event) => {
     chat.style.display = "flex"
 
     websocket = new WebSocket("wss://conversalheia-chat-ao-vivo.onrender.com")
+    websocket.onopen = () => {
+        console.log("✅ WebSocket conectado.");
+        isWebSocketReady = true;
+    };
     websocket.onmessage = processMessage
 }    
 
 const sendMessage = (event) =>{
     event.preventDefault()
+
+    if (!websocket || !isWebSocketReady || websocket.readyState !== WebSocket.OPEN) {
+        console.warn("⛔ WebSocket ainda não está pronto.");
+        return;
+    }
     
     const message = {
         userId: user.id,
