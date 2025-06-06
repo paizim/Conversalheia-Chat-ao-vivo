@@ -43,7 +43,7 @@ const scrollScreen = () =>{
     })
 }
 const processMessage = ({data}) => {
-    const {userID,userName,userColor} = JSON.parse(data)
+    const {userId,userName,userColor} = JSON.parse(data)
     const isSelf = userId === user.id
     const message = isSelf
         ? createMesssageSelfElement = (content) 
