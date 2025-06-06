@@ -55,7 +55,7 @@ const handleLogin = (event) => {
     login.style.display = "none"
     chat.style.display = "flex"
 
-    websocket = new Websocket("wss://conversalheia-chat-ao-vivo.onrender.com")
+    websocket = new WebSocket("wss://conversalheia-chat-ao-vivo.onrender.com")
     websocket.onmessage = processMessage
 }    
 
